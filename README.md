@@ -33,5 +33,51 @@ __Exemplo__:
 | Endereço                        | Jogos Onlines                   | Serviços de Assinatura                    | Entregas e Delivery        |
 | Saldo em Conta                  | Sistema de Pesquisa             | Marketplace                               | Sistema Bancario           |
 | Etnia                           | Sites de Compras                | Pesquisa Demográfica                      | Senso Socio-Cultural       |
+#
 
+### 4º Questão
+* a) Sim, seria interresante a conta possuir um atributo referente ao seu titular, desta forma seria formada uma ligação com a pessoa responsavel pela conta.
+* b) Sim, tendo em vista que uma pessoa pode abrir mais contas em bancos diferentes, então possuir um atributo multivalorado em contas seria importante. E como forma de representar o conjuto da contas, um __array(lista)__ seria ideal para guardar e organizar todas as contas.
+#
 
+### 5º Questão
+__Objetos de um sistema de controle acadêmico:__ Monitor, Diretor, Reitor, Periodos, Blocos, Aréas de Estudos...  
+#
+
+### 6º Questão
+***Jogo de RPG:***
+
+* Personagem
+  - **Atributos:**
+    - Nome
+    - Classe (ex: guerreiro, mago, arqueiro)
+    - Experiência
+    - Habilidade
+    - Vida
+    - Inventário (lista de itens)
+  - **Métodos:**
+    - Atacar (alvo)
+    - Mover (direção)
+    - Ganhar experiência (quantidade)
+    - Aprender habilidade (habilidade)
+* Inimigo
+  - **Atributos:**
+    - Nome
+    - Nível
+    - Vida
+    - Ataque
+    - Defesa
+  - **Métodos:**
+    - Atacar (personagem)
+    - Receber dano (quantidade)
+    - Fugar-se (chance)
+
+* Habilidade
+  - **Atributos:**
+    - Nome
+    - Tipo (ex: ataque, defesa, suporte)
+    - Custo de mana
+    - Dano ou efeito
+  - **Métodos:**
+    - Usar (personagem, alvo)
+    - Aumentar nível (número)
