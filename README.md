@@ -21,3 +21,16 @@ __Exemplo__:
   - Ligar
   - Desligar
   - Configurar
+#
+
+### 3º Questão
+| Atributo                 | Sistema em que não é importante | Sistema em que é moderadamente importante | Sistema em que é essencial |
+| ------------------------ | ------------------------------- | ----------------------------------------- | -------------------------- |
+|   CPF                    |                                 |                                           |                            |
+| Histórico de saúde       |                                 |                                           |                            |
+| Quantidade de seguidores |                                 |                                           |                            |
+| Habilidade destra        |                                 |                                           |                            |
+| Endereço                 |                                 |                                           |                            |
+| Saldo em Conta           |                                 |                                           |                            |
+
+
