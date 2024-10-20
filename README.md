@@ -24,13 +24,14 @@ __Exemplo__:
 #
 
 ### 3º Questão
-| Atributo                 | Sistema em que não é importante | Sistema em que é moderadamente importante | Sistema em que é essencial |
-| ------------------------ | ------------------------------- | ----------------------------------------- | -------------------------- |
-|   CPF                    |                                 |                                           |                            |
-| Histórico de saúde       |                                 |                                           |                            |
-| Quantidade de seguidores |                                 |                                           |                            |
-| Habilidade destra        |                                 |                                           |                            |
-| Endereço                 |                                 |                                           |                            |
-| Saldo em Conta           |                                 |                                           |                            |
+| Atributo                        | Sistema em que não é importante | Sistema em que é moderadamente importante | Sistema em que é essencial |
+| ------------------------------- | ------------------------------- | ----------------------------------------- | -------------------------- |
+| CPF                             | Sistemas de Entreterimento      | Sistema Acadêmico                         | Sistema de Impostos        |
+| Histórico de saúde              | Loja de Roupas                  | Nutricionista                             | Plano de Saúde             |
+| Quantidade de seguidores        | Sistema de Saúde                | Sistema de Marketing                      | Rede Social                |
+| Habilidade destra               | Restaurante                     | Competições de Jogos                      | Seleçãp de Atletas         |
+| Endereço                        | Jogos Onlines                   | Serviços de Assinatura                    | Entregas e Delivery        |
+| Saldo em Conta                  | Sistema de Pesquisa             | Marketplace                               | Sistema Bancario           |
+| Etnia                           | Sites de Compras                | Pesquisa Demográfica                      | Senso Socio-Cultural       |
 
 
