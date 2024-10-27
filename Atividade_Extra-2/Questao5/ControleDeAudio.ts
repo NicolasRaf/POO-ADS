@@ -30,7 +30,7 @@ class ControleDeAudio {
 function main() {
     console.clear()
     let myAudio = new ControleDeAudio();
-    console.log(`Volume Inicial: ${myAudio.lerVolume}`);
+    console.log(`Volume Inicial: ${myAudio.lerVolume()}`);
 
     myAudio.aumentarVolume();  
     myAudio.diminuirVolume();

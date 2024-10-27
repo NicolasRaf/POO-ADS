@@ -28,7 +28,7 @@ var ControleDeAudio = /** @class */ (function () {
 function main() {
     console.clear();
     var myAudio = new ControleDeAudio();
-    console.log("Volume Inicial: ".concat(myAudio.lerVolume));
+    console.log("Volume Inicial: ".concat(myAudio.lerVolume()));
     myAudio.aumentarVolume();
     myAudio.diminuirVolume();
 }
