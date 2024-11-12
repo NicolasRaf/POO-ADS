@@ -15,8 +15,7 @@ function main() {
 
   const Ely = new Professor("Ely", 120.56, "TypeScript");
 
-    const message: string = `${Ely.name}\nMy payment time is ${Ely.payment} and\nmy preffered   
-    language is ${Ely.language}`;
+    const message: string = `${Ely.name}\nMy payment time is ${Ely.payment} and\nmy preffered language is ${Ely.language}`;
 
     console.log(message);
 }
