@@ -1,6 +1,6 @@
 # ***Atividade 3***
 
-Resposta das questões de 1 a 8 no [código](C:\Users\nicol\Documents\IFPI\ADS\POO-ADS\Atividade-3\src\exercism3.ts).
+Resposta das questões de 1 a 8 no [código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-3/src/exercism3.ts).
 
 Saída do código com os valores originais:
 
