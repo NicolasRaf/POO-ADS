@@ -13,23 +13,6 @@ Olá, Sr. Ely
 Olá, Sr. Rogério
 Olá, Sra. Sandra
 
-
-1ª Questão
-O número é par!
-
-2ª Questão
-Olá, Sr. Ely
-Olá, Sr. Rogério
-Olá, Sra. Sandra
-
-1ª Questão
-O número é par!
-
-2ª Questão
-Olá, Sr. Ely
-Olá, Sr. Rogério
-Olá, Sra. Sandra
-
 3ª Questão
 1-2-3-4-5
 
