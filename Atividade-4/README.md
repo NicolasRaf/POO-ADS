@@ -15,7 +15,7 @@ objetos no momento da instanciação;
 #
 
 ### 2º Questão
-Sim, haverá um problema de compilação porque, ao tentar incrementar a variável ela estará com valor "undefined" por não ter sido inicializada ainda, fazendo com que seja impossivel realizar a operação de incremento, nesccessitando que as variaveis de instância precisem ser inicializadas antes de seu uso.
+Sim, haverá um problema de compilação porque, ao tentar incrementar a variável ela estará com valor `undefined` por não ter sido inicializada ainda, fazendo com que seja impossivel realizar a operação de incremento, nesccessitando que as variaveis de instância precisem ser inicializadas antes de seu uso.
 #
 
 ### 3º Questão
