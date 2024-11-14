@@ -19,9 +19,9 @@ Sim, haverá um problema de compilação porque, ao tentar incrementar a variáv
 #
 
 ### 3º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 #
-
+    
 ### 4º Questão
 O erro de compilação ocorre porque o construtor da classe `Radio` espera um valor do tipo `number` para inicializar a variável `volume`, o código apresentando instância um objeto da classe sem passar o parâmetro para o volume, causando o erro. A solução seria adicionar um valor no parêntese ao instânciar o objeto. [Codigo Solução](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts) 
 #
@@ -35,27 +35,27 @@ O erro de compilação ocorre porque o construtor da classe `Radio` espera um va
 #
 
 ### 6º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 
 #
 
 ### 7º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 
 #
 
 ### 8º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 
 #   
 
 ### 9º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 
 #
 
 ### 10º Questão
-__[Questão em código](https://github.com/NicolasRaf/-ADS/blob/main/Atividade-4/src/main.ts)__
+__[Questão em código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-4/src/main.ts)__
 
 #
 
