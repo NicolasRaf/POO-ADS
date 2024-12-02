@@ -12,6 +12,9 @@ class Client {
     getCPF() {
         return this.CPF;
     }
+    getId() {
+        return this.id;
+    }
     getAccounts() {
         return this.accounts;
     }

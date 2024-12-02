@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("./classes/index");
 function main() {
     console.clear();
-    let account1 = new index_1.Account(1, 1000, new index_1.Client(1, "João Silva", "123.456.789-00", new Date("1990-01-01"), []));
-    let account2 = new index_1.Account(2, 500, new index_1.Client(2, "Nicolas Rafel", "654.789.321-15", new Date("2006-06-13"), []));
+    let account1 = new index_1.Account("A-111", 1, 1000, new index_1.Client(1, "João Silva", "123.456.789-00", new Date("1990-01-01"), []));
+    let account2 = new index_1.Account("B-222", 2, 500, new index_1.Client(2, "Nicolas Rafel", "654.789.321-15", new Date("2006-06-13"), []));
     let testBank = new index_1.Bank();
     testBank.insertAccount(account1);
     testBank.insertAccount(account2);
