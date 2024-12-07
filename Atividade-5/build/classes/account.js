@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
 class Account {
-    constructor(num, id, balance, client) {
-        this.num = num;
+    constructor(id, balance, client) {
         this.id = id;
         this.balance = balance;
         this.client = client;
@@ -16,9 +15,6 @@ class Account {
     }
     checkBalance() {
         return this.balance;
-    }
-    getNum() {
-        return this.num;
     }
     getId() {
         return this.id;

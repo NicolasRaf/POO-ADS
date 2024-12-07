@@ -6,6 +6,12 @@ class Bank {
         this.accounts = [];
         this.clients = [];
     }
+    insertAccount(newAccount) {
+        this.accounts.push(newAccount);
+    }
+    insertClient(newClient) {
+        this.clients.push(newClient);
+    }
     consultAccount(searchedID) {
         let accountSearched;
         for (let account of this.accounts) {
@@ -35,29 +41,6 @@ class Bank {
             foundClient.insertAccount(foundAccount);
         if (foundAccount.consultClient() != foundClient)
             foundAccount.associateClient(foundClient);
-    }
-    listClientAccounts(cpf) {
-        return this.consultClientByCPF(cpf).getAccounts();
-    }
-    totalClientBalance(cpf) {
-        const clientAccounts = this.consultClientByCPF(cpf).getAccounts();
-        let total = 0;
-        for (let account of clientAccounts) {
-            total += account.checkBalance();
-        }
-        return total;
-    }
-    insertClient(newClient) {
-        for (let client of this.clients) {
-            if (newClient.getCPF() === client.getCPF() || newClient.getId() === client.getId()) {
-                console.log("Cliente já incluso no banco!");
-                return;
-            }
-        }
-        this.clients.push(newClient);
-    }
-    insertAccount(newAccount) {
-        this.accounts.push(newAccount);
     }
 }
 exports.Bank = Bank;
