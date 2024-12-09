@@ -1,6 +1,6 @@
 # ***Atividade 5.2***
 
-### 1ª Questão - Saída do [Codigo]()
+### 1ª Questão - Saída do [Codigo](https://github.com/NicolasRaf/POO-ADS/blob/462785653737c89a90021975377a58acde6b1384/Atividade-5.2/src/app/bank_main.ts)
 
 ```
 Conta consultada pelo ID 1:
@@ -249,4 +249,37 @@ Saldo da conta C-333: 9999499
 
 Estado da conta B-222 = null
 ```
-### 2ª Questão - Saída do [Codigo]()
+### 2ª Questão - Saída do [Codigo](https://github.com/NicolasRaf/POO-ADS/blob/8e82b275c4be4722ba1cbdc285a236ef007f199f/Atividade-5.2/src/app/microblog_main.ts)
+
+```
+Todos os posts do Blog!
+Postagem #1: Primeira postagem! - Curtidas: 0
+Postagem #2: Segunda postagem! - Curtidas: 0
+Postagem #3: Terceira postagem! - Curtidas: 0
+
+Curtindo Posts
+Todos os posts do Blog!
+Postagem #1: Primeira postagem! - Curtidas: 50
+Postagem #2: Segunda postagem! - Curtidas: 1
+Postagem #3: Terceira postagem! - Curtidas: 1
+
+Post mais curtido: 
+Postagem #1: Primeira postagem! - Curtidas: 50
+
+Deletando Post 1
+Todos os posts do Blog!
+Postagem #2: Segunda postagem! - Curtidas: 1
+Postagem #3: Terceira postagem! - Curtidas: 1
+
+Post mais curtido: 
+Postagem #2: Segunda postagem! - Curtidas: 1
+
+Testando métodos em post inexistente!
+undefined
+
+Todos os posts do Blog após inserção inválida:
+Postagem #2: Segunda postagem! - Curtidas: 1
+Postagem #3: Terceira postagem! - Curtidas: 1
+
+```
+### 3ª Questão - Saída do [Codigo](https://github.com/NicolasRaf/POO-ADS/blob/8e82b275c4be4722ba1cbdc285a236ef007f199f/Atividade-5.2/src/app/microblog_main.ts)
