@@ -1,6 +1,6 @@
 import prompt from "prompt-sync";
-import { Account, Bank } from "../classes";
-import { getNumber } from "./utils/io";
+import { getNumberInRange, pressEnter } from "./utils/io";
+import { optionSelector } from "./utils/optionSelector";
 
 
 function showMenu(): number {
@@ -19,14 +19,18 @@ function showMenu(): number {
     console.log(`  ============================================\n`);
     
 
-    return getNumber(" >> ");
+    return getNumberInRange(" >> ", 1, 8);
 }
 
 function main() {
     let option = showMenu();
 
-    console.log(typeof(option));
-
+    while (option != 8) {
+        optionSelector(option);
+        pressEnter();
+        option = showMenu();
+    }
+    console.log("Progama Finalizado...");
 }
 
 main();

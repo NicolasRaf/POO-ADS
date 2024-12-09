@@ -55,14 +55,14 @@ function main() {
     console.log(testBank.getAllAccounts());
     // Verificando número de contas
     console.log("Número de contas no banco:");
-    console.log(testBank.getAccountsAmount()); // Deve retornar 2
+    console.log(testBank.getAccountsAmount());
     // Total de saldo no banco
     console.log("Soma total dos saldos das contas:");
-    console.log(testBank.getAccountsBalanceAmount()); // Deve retornar a soma de 1000 + 500
+    console.log(testBank.getAccountsBalanceAmount());
     // Atualizando dados de um cliente
     console.log("\nAtualizando nome do cliente com CPF '123.456.789-00'...");
     testBank.updateClient("123.456.789-00", "Ely Santana", new Date("1990-01-01"));
-    console.log(testBank.consultClientByCPF("123.456.789-00")); // Verifique se o nome foi atualizado
+    console.log(testBank.consultClientByCPF("123.456.789-00"));
     // Testando saque via banco
     console.log("\nRealizando saque de 300 da conta A-111...");
     testBank.bankWithdraw(300, "A-111");
