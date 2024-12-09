@@ -249,5 +249,4 @@ Saldo da conta C-333: 9999499
 
 Estado da conta B-222 = null
 ```
-
 ### 2ª Questão - Saída do [Codigo]()

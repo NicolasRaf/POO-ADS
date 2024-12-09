@@ -1,73 +1,58 @@
-import { Post } from "./post"
-
-export class Microblog {
-    private allPosts: Post[];
-
-    constructor(){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Microblog = void 0;
+class Microblog {
+    constructor() {
         this.allPosts = [];
     }
-
-    public insertPost( newPost: Post): void {
+    insertPost(newPost) {
         this.allPosts.push(newPost);
     }
-
-    public getPostIndexById( searchedPostId: number): number | undefined {
+    getPostIndexById(searchedPostId) {
         for (let i = 0; i < this.allPosts.length; i++) {
-            if (this.allPosts[i].getId() == searchedPostId) return i;
-        }       
+            if (this.allPosts[i].getId() == searchedPostId)
+                return i;
+        }
         return undefined;
     }
-
-
-    public deletePost( searchedPostId: number): void {
+    deletePost(searchedPostId) {
         const postIndex = this.getPostIndexById(searchedPostId);
-
-     
-        if (postIndex !== undefined) { 
-            const indexArraySize: number = this.allPosts.length - 1;
-    
+        if (postIndex !== undefined) {
+            const indexArraySize = this.allPosts.length - 1;
             for (let i = postIndex; i < indexArraySize; i++) {
                 this.allPosts[i] = this.allPosts[i + 1];
             }
-            this.allPosts.pop(); 
+            this.allPosts.pop();
         }
     }
-
-    public getPostMostLiked(): Post | undefined {
-        let mostLikedPost: Post = this.allPosts[0];
-        
+    getPostMostLiked() {
+        let mostLikedPost = this.allPosts[0];
         for (let post of this.allPosts) {
             if (post.getAmountLikes() > mostLikedPost.getAmountLikes()) {
                 mostLikedPost = post;
-        }
-        
-        return mostLikedPost
+            }
+            return mostLikedPost;
         }
     }
-
-    public getPostById(searchedPostId: number): Post | undefined {
+    getPostById(searchedPostId) {
         const postIndex = this.getPostIndexById(searchedPostId);
-
         if (postIndex !== undefined) {
             return this.allPosts[postIndex];
         }
-        return undefined;    
+        return undefined;
     }
-
-    public likePostBlog(searchedPostId: number): void {
+    likePostBlog(searchedPostId) {
         const postIndex = this.getPostIndexById(searchedPostId);
-
-        if (postIndex !== undefined) {  
+        if (postIndex !== undefined) {
             this.allPosts[postIndex].likePost();
         }
     }
-
-    public allPostToString(): string {
-        let allPostsString: string = '';
-
+    allPostToString() {
+        let allPostsString = '';
         for (let post of this.allPosts) {
             allPostsString += post.toString() + '\n';
         }
         return allPostsString;
     }
 }
+exports.Microblog = Microblog;

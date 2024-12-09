@@ -22,6 +22,10 @@ export class Post {
         return this.id;
     }
 
+    public getAmountLikes(): number {
+        return this.amountLikes;
+    }
+
 
 
 }
