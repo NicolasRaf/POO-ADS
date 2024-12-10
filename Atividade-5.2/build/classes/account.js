@@ -2,11 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
 class Account {
-    constructor(id, accNumber, balance, client) {
-        this.id = id;
+    constructor(accNumber, balance, client) {
         this.accNumber = accNumber;
         this.balance = balance;
         this.client = client;
+    }
+    setId(id) {
+        this.id = id;
     }
     withdraw(value) {
         if (value <= 0 || isNaN(value))

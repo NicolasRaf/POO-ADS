@@ -6,9 +6,9 @@ export class Client {
     private CPF: string;
     private dateBirth : Date;
     private accounts: Account[];
-    
-    constructor(num: number, name: string, cpf: string, dateBirth: Date, accounts: Account[]) {
-        this.id = num;
+        
+    constructor(id: number, name: string, cpf: string, dateBirth: Date, accounts: Account[] = []) {
+        this.id = id;
         this.name = name;
         this.CPF = cpf;
         this.dateBirth = dateBirth;

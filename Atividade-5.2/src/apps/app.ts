@@ -1,11 +1,10 @@
-import prompt from "prompt-sync";
-import { getNumberInRange, pressEnter } from "./utils/io";
-import { optionSelector } from "./utils/optionSelector";
+import { Bank } from "../classes";
+import { getNumberInRange, pressEnter } from "../utils/io";
+import { optionSelector } from "../utils/optionSelector";
 
 
 function showMenu(): number {
     console.clear();
-    let input = prompt();   
 
     console.log(`  ============================================`);
     console.log(`\tBem vindo! Selecione uma opção:`);
@@ -24,9 +23,10 @@ function showMenu(): number {
 
 function main() {
     let option = showMenu();
+    let myBank: Bank = new Bank;
 
     while (option != 8) {
-        optionSelector(option);
+        optionSelector(option, myBank);
         pressEnter();
         option = showMenu();
     }

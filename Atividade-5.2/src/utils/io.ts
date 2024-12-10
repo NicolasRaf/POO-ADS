@@ -24,5 +24,9 @@ export function getNumberInRange(text: string, min:number, max: number): number 
 }
 
 export function pressEnter(): void {
-    input("Press Enter para continuar...");
+    input("\nPress Enter para continuar...");
+}
+
+export function getText(text: string) {
+    return input(text);
 }

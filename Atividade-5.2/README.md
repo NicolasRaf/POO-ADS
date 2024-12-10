@@ -282,4 +282,5 @@ Postagem #2: Segunda postagem! - Curtidas: 1
 Postagem #3: Terceira postagem! - Curtidas: 1
 
 ```
-### 3ª Questão - Saída do [Codigo](https://github.com/NicolasRaf/POO-ADS/blob/8e82b275c4be4722ba1cbdc285a236ef007f199f/Atividade-5.2/src/app/microblog_main.ts)
+
+### 3ª Questão - [Codigo] com Menu.(https://github.com/NicolasRaf/POO-ADS/blob/53396ea0e3b52dbbbb0647fa72593f2e400616b4/Atividade-5.2/src/apps/app.ts)

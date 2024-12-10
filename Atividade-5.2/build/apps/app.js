@@ -1,14 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const prompt_sync_1 = __importDefault(require("prompt-sync"));
-const io_1 = require("./utils/io");
-const optionSelector_1 = require("./utils/optionSelector");
+const classes_1 = require("../classes");
+const io_1 = require("../utils/io");
+const optionSelector_1 = require("../utils/optionSelector");
 function showMenu() {
     console.clear();
-    let input = (0, prompt_sync_1.default)();
     console.log(`  ============================================`);
     console.log(`\tBem vindo! Selecione uma opção:`);
     console.log(`  ============================================`);
@@ -23,8 +19,9 @@ function showMenu() {
 }
 function main() {
     let option = showMenu();
+    let myBank = new classes_1.Bank;
     while (option != 8) {
-        (0, optionSelector_1.optionSelector)(option);
+        (0, optionSelector_1.optionSelector)(option, myBank);
         (0, io_1.pressEnter)();
         option = showMenu();
     }

@@ -1,16 +1,19 @@
 import { Client } from "./client";
 
 export class Account {
-    private id: number;
+    private id?: number;
     private accNumber: string;
     private balance: number;
     private client: Client;
 
-    constructor(id: number, accNumber: string, balance: number, client: Client) {
-        this.id = id;        
+    constructor(accNumber: string, balance: number, client: Client) {
         this.accNumber = accNumber;        
         this.balance = balance;
         this.client = client;
+    }
+
+    public setId(id: number): void {
+        this.id = id;
     }
 
     public withdraw(value: number): boolean {
@@ -31,7 +34,7 @@ export class Account {
         return this.balance;
     }
 
-    public getId(): number {
+    public getId(): number | undefined {
         return this.id;
     }
 
