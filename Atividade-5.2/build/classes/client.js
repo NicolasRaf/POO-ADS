@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Client = void 0;
 class Client {
-    constructor(id, name, cpf, dateBirth, accounts = []) {
+    constructor(name, cpf, dateBirth, id, accounts = []) {
         this.id = id;
         this.name = name;
         this.CPF = cpf;

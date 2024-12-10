@@ -6,26 +6,29 @@ import { optionSelector } from "../utils/optionSelector";
 function showMenu(): number {
     console.clear();
 
-    console.log(`  ============================================`);
+    console.log(`  ==============================================`);
     console.log(`\tBem vindo! Selecione uma opção:`);
-    console.log(`  ============================================`);
-    console.log(`
-    \t1-Inserir         5-Excluir
-    \t2-Consultar       6-Transferir
-    \t3-Sacar           7-Totalizações
-    \t4-Depositar       8-Sair
-    `);
-    console.log(`  ============================================\n`);
-    
+    console.log(`  ==============================================`);
 
-    return getNumberInRange(" >> ", 1, 8);
+    console.log(`\t  Contas \t\t Clientes\n     -------------------   --------------------
+    \t01-Inserir           08-Inserir
+    \t02-Consultar         09-Consultar
+    \t03-Sacar             10-Associar
+    \t04-Depositar         11-Total aplicado 
+    \t05-Excluir           por cliente
+    \t06-Transferir 
+    \t07-Totalizações   
+                                      0-Sair
+  ==============================================\n`);
+
+    return getNumberInRange(" >> ", 0, 8);
 }
 
 function main() {
     let option = showMenu();
     let myBank: Bank = new Bank;
 
-    while (option != 8) {
+    while (option != 0) {
         optionSelector(option, myBank);
         pressEnter();
         option = showMenu();

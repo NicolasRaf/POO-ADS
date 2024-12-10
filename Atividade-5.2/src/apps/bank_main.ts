@@ -7,24 +7,24 @@ function main() {
     let testBank: Bank = new Bank();
 
     // Criar clientes
-    let client1: Client = new Client(1, "Ely Miranda", "123.456.789-00", new Date("1990-01-01"), []);
-    let client2: Client = new Client(2, "Nicolas Rafael", "654.789.321-15", new Date("2006-06-13"), []);
+    let client1: Client = new Client("Ely Miranda", "123.456.789-00", new Date("1990-01-01"), 1);
+    let client2: Client = new Client("Nicolas Rafael", "654.789.321-15", new Date("2006-06-13"), 2);
 
     // Inserir clientes no banco
     testBank.insertClient(client1);
     testBank.insertClient(client2);
 
     // Criar contas
-    let account1: Account | null = new Account(1,"A-111", 1000, client1);
-    let account2: Account | null = new Account(2,"B-222", 500, client2);
+    let account1: Account | null = new Account("A-111", 1000, client1, 1);
+    let account2: Account | null = new Account("B-222", 500, client2, 2);
 
     // Inserir contas no banco
     testBank.insertAccount(account1);
     testBank.insertAccount(account2);
 
     // Testar consulta de conta
-    console.log("Conta consultada pelo ID 1:");
-    console.log(testBank.consultAccount(1));
+    console.log("Conta consultada pelo número A-111:");
+    console.log(testBank.consultAccount("A-111"));
 
     // Testar consulta de cliente pelo CPF
     console.log("\nCliente consultado pelo CPF '123.456.789-00':");
@@ -32,8 +32,8 @@ function main() {
 
     // Associar contas aos clientes
     console.log("\nAssociando conta ao cliente...");
-    testBank.associateClientAccount(1, "123.456.789-00");
-    testBank.associateClientAccount(2, "654.789.321-15");
+    testBank.associateClientAccount("A-111", "123.456.789-00");
+    testBank.associateClientAccount("B-222", "654.789.321-15");
 
     // Verificar contas associadas
     console.log("\nContas do cliente Ely Miranda:");
@@ -92,10 +92,10 @@ function main() {
     testBank.bankDeposit(150, "A-111");
     console.log(account1.checkBalance()); 
 
-    let client3: Client = new Client(2, "Silvio Santos", "000.111.222-33", new Date("1930-12-12"), []);
+    let client3: Client = new Client("Silvio Santos", "000.111.222-33", new Date("1930-12-12"), 3);
     testBank.insertClient(client3);
 
-    let account3: Account | null = new Account(2,"C-333", 9999999, client3);
+    let account3: Account | null = new Account("C-333", 9999999, client3, 3);
     testBank.insertAccount(account3);
 
     // Transderencia de uma conta para varias destino

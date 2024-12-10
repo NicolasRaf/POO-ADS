@@ -4,9 +4,10 @@ export class Account {
     private id?: number;
     private accNumber: string;
     private balance: number;
-    private client: Client;
+    private client?: Client;
 
-    constructor(accNumber: string, balance: number, client: Client) {
+    constructor(accNumber: string, balance: number, client?: Client, id?: number) {
+        this.id = id;
         this.accNumber = accNumber;        
         this.balance = balance;
         this.client = client;
@@ -42,7 +43,7 @@ export class Account {
         return this.accNumber;
     }
 
-    public consultClient(): Client {
+    public consultClient(): Client | undefined {
         return this.client;
     }
 

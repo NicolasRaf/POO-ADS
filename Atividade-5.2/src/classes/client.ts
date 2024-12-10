@@ -1,13 +1,13 @@
 import { Account } from "./account";
 
 export class Client {
-    private id: number;
+    private id?: number;
     private name: string;
     private CPF: string;
     private dateBirth : Date;
     private accounts: Account[];
         
-    constructor(id: number, name: string, cpf: string, dateBirth: Date, accounts: Account[] = []) {
+    constructor(name: string, cpf: string, dateBirth: Date, id?: number, accounts: Account[] = []) {
         this.id = id;
         this.name = name;
         this.CPF = cpf;

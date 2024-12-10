@@ -12,10 +12,10 @@ class Bank {
     insertClient(newClient) {
         this.clients.push(newClient);
     }
-    consultAccount(searchedID) {
+    consultAccount(accNumber) {
         let accountSearched;
         for (let account of this.accounts) {
-            if (account.getId() == searchedID) {
+            if (account.getAccNumber() == accNumber) {
                 accountSearched = account;
                 break;
             }
@@ -50,9 +50,9 @@ class Bank {
     getAllAccounts() {
         return this.accounts;
     }
-    associateClientAccount(accountId, clientCPF) {
+    associateClientAccount(accNumber, clientCPF) {
         const foundClient = this.consultClientByCPF(clientCPF);
-        const foundAccount = this.consultAccount(accountId);
+        const foundAccount = this.consultAccount(accNumber);
         if (!foundClient.getAccounts().includes(foundAccount))
             foundClient.insertAccount(foundAccount);
         if (foundAccount.consultClient() != foundClient)

@@ -18,11 +18,11 @@ export class Bank {
         this.clients.push(newClient);
     }
 
-    public consultAccount( searchedID: number ): Account {
+    public consultAccount( accNumber: string ): Account {
         let accountSearched!: Account;
 
         for (let account of this.accounts) {
-            if (account.getId() == searchedID) {
+            if (account.getAccNumber() == accNumber) {
                 accountSearched = account;
                 break;
             }
@@ -65,9 +65,9 @@ export class Bank {
         return this.accounts;
     }
 
-    public associateClientAccount(  accountId: number, clientCPF: string ): void {
+    public associateClientAccount(  accNumber: string, clientCPF: string ): void {
         const foundClient: Client = this.consultClientByCPF(clientCPF);
-        const foundAccount: Account = this.consultAccount(accountId);
+        const foundAccount: Account = this.consultAccount(accNumber);
 
         if ( !foundClient.getAccounts().includes(foundAccount) ) foundClient.insertAccount(foundAccount);
 
