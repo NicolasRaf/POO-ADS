@@ -36,7 +36,7 @@ export class Bank {
         }
     }
 
-    public deleteAccount(accNumber: string): void {
+    public deleteAccount(accNumber: string): boolean {
         let accountIndex: number | undefined = this.getAccountIndexByNumber(accNumber);
     
         if (accountIndex !== undefined) { 
@@ -46,7 +46,10 @@ export class Bank {
                 this.accounts[i] = this.accounts[i + 1];
             }
             this.accounts.pop(); 
+            return true;
         }
+
+        return false;
     }
 
     public consultClientByCPF( searchedCPF: string ): Client {
@@ -94,12 +97,15 @@ export class Bank {
         return false;
     }
 
-    public bankDeposit(value: number, accNumber: string): void {
+    public bankDeposit(value: number, accNumber: string): boolean {
         const accountIndex: number | undefined = this.getAccountIndexByNumber(accNumber);
 
         if (accountIndex != undefined) { 
             this.accounts[accountIndex].deposit(value);
+            return true;
         }
+        
+        return false;
     }
 
     public transferBank(value: number, originAccNumber: string, destinyAccNumber: string ): boolean {

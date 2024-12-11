@@ -26,7 +26,8 @@ function getNumberInRange(text, min, max) {
     return response;
 }
 function pressEnter() {
-    input("\nPress Enter para continuar...");
+    console.log();
+    input("Press Enter para continuar...");
 }
 function getText(text) {
     return input(text);

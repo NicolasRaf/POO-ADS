@@ -36,7 +36,9 @@ class Bank {
                 this.accounts[i] = this.accounts[i + 1];
             }
             this.accounts.pop();
+            return true;
         }
+        return false;
     }
     consultClientByCPF(searchedCPF) {
         let clientSearched;
@@ -79,7 +81,9 @@ class Bank {
         const accountIndex = this.getAccountIndexByNumber(accNumber);
         if (accountIndex != undefined) {
             this.accounts[accountIndex].deposit(value);
+            return true;
         }
+        return false;
     }
     transferBank(value, originAccNumber, destinyAccNumber) {
         if (value <= 0 || isNaN(value))

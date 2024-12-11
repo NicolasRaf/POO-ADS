@@ -8,17 +8,17 @@ function showMenu() {
     console.log(`  ==============================================`);
     console.log(`\tBem vindo! Selecione uma opção:`);
     console.log(`  ==============================================`);
-    console.log(`\t  Contas \t\t Clientes\n     -------------------   --------------------
+    console.log(`\t  Contas \t\tClientes\n     -------------------   -------------------
     \t01-Inserir           08-Inserir
     \t02-Consultar         09-Consultar
     \t03-Sacar             10-Associar
-    \t04-Depositar         11-Total aplicado 
-    \t05-Excluir           por cliente
+    \t04-Depositar         
+    \t05-Excluir           
     \t06-Transferir 
     \t07-Totalizações   
                                       0-Sair
   ==============================================\n`);
-    return (0, io_1.getNumberInRange)(" >> ", 0, 8);
+    return (0, io_1.getNumberInRange)(" >> ", 0, 11);
 }
 function main() {
     let option = showMenu();
