@@ -47,7 +47,8 @@ function optionSelector(option, bank) {
             checkResult(result, "Tranferência realizada com sucesso!", "Falha ao realizar a transferências entre as contas!");
             break;
         case 7:
-            console.log("Opção 7 selecionada: Sair");
+            console.log(`Total de Saldo das contas no banco: ${bank.getAccountsBalanceAmount()}`);
+            console.log(`Media de Saldo das contas no banco: ${bank.balanceAccountsAvarage()}`);
             break;
         case 8:
             const clientName = (0, io_1.getText)("Digite o nome do cliente: ");
