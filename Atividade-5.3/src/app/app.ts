@@ -1,39 +1,16 @@
-import { Bank } from "../classes";
-import { getNumberInRange, pressEnter } from "../utils/io";
-import { optionSelector } from "../utils/optionSelector";
-
-
-function showMenu(): number {
-    console.clear();
-
-    console.log(`  ==============================================`);
-    console.log(`\tBem vindo! Selecione uma opção:`);
-    console.log(`  ==============================================`);
-
-    console.log(`\t  Contas \t\tClientes\n     -------------------   -------------------
-    \t01-Inserir           08-Inserir
-    \t02-Consultar         09-Consultar
-    \t03-Sacar             10-Associar 
-    \t04-Depositar            e trocar
-    \t05-Excluir           11-Excluir
-    \t06-Transferir 
-    \t07-Totalizações   
-                                      0-Sair
-  ==============================================\n`);
-
-    return getNumberInRange(" >> ", 0, 11);
-}
+import { pressEnter } from "../utils/io";
+import { OptionSelector } from "../classes";
 
 function main() {
-    let option = showMenu();
-    let myBank: Bank = new Bank;
+    let optionSelector = new OptionSelector();
+    let option = optionSelector.showMenu();
 
     while (option != 0) {
-        optionSelector(option, myBank);
+        optionSelector.handleOption(option);
         pressEnter();
-        option = showMenu();
+        option = optionSelector.showMenu();
     }
-    console.log("Progama Finalizado...");
+    console.log("Programa Finalizado...");
 }
 
 main();

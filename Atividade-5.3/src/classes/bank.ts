@@ -44,7 +44,8 @@ export class Bank {
 
     public deleteAccount(accNumber: string): boolean {
         let accountIndex: number | undefined = this.getAccountIndexByNumber(accNumber);
-    
+        
+
         if (accountIndex !== undefined) { 
             const indexArraySize: number = this.accounts.length - 1;
     
@@ -58,20 +59,28 @@ export class Bank {
         return false;
     }
 
-    public deleteClient(clientCPF: string): boolean {
-        let clientIndex: number | undefined = this.getAccountIndexByNumber(clientCPF);
+    public deleteClient(clientCPF: string, deleteAccounts?: boolean): boolean {
+        let clientIndex: number | undefined = this.getClientndexByNumber(clientCPF);
+        if (clientIndex === undefined) return false;
     
-        if (clientIndex !== undefined) { 
-            const indexArraySize: number = this.clients.length - 1;
-    
-            for (let i = clientIndex; i < indexArraySize; i++) {
-                this.clients[i] = this.clients[i + 1];
-            }
-            this.clients.pop(); 
-            return true;
-        }
+        let clientAccounts = this.clients[clientIndex].getAccounts();
 
-        return false;
+        for (const account of clientAccounts) {
+            if (deleteAccounts) {
+                this.deleteAccount(account.getAccNumber()); 
+            } else {
+                account.disassociateClient();
+            }
+        }
+        
+
+        const indexArraySize: number = this.clients.length - 1;
+        for (let i = clientIndex; i < indexArraySize; i++) {
+                this.clients[i] = this.clients[i + 1];
+        }
+        
+        this.clients.pop(); 
+        return true;
     }
 
     public consultClientByCPF( searchedCPF: string ): Client {
@@ -90,13 +99,17 @@ export class Bank {
         return this.accounts;
     }
 
-    public linkClientToAccount(  accNumber: string, clientCPF: string ): void {
+    public linkClientToAccount(  accNumber: string, clientCPF: string ): boolean {
         const foundClient: Client = this.consultClientByCPF(clientCPF);
         const foundAccount: Account = this.consultAccount(accNumber);
 
-        if ( !foundClient.getAccounts().includes(foundAccount) ) foundClient.insertAccount(foundAccount);
+        if (foundAccount !== undefined && foundClient    !== undefined){
+            if ( !foundClient.getAccounts().includes(foundAccount) ) foundClient.insertAccount(foundAccount);
+            if ( foundAccount.consultClient() != foundClient ) foundAccount.associateClient(foundClient);
 
-        if ( foundAccount.consultClient() != foundClient ) foundAccount.associateClient(foundClient);
+            return true;
+        }
+        return false;
     }
 
     public updateClient(cpf: string, name?: string, dateBirth?: Date): void {
@@ -196,6 +209,16 @@ export class Bank {
         return this.getAccountsBalanceAmount() / this.getAccountsAmount();
     }
 
-    
+    public listAccountsDisassociated(): Account[] {
+        let accounts: Account[] = [];
+
+        for (let account of this.accounts) {
+            if (account.consultClient() === undefined) {
+                accounts.push(account);
+            }
+        }
+
+        return accounts;
+    }
 }   
 

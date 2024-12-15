@@ -51,6 +51,10 @@ export class Account {
         this.client = client;
     }
 
+    public disassociateClient(): void {
+        this.client = undefined;
+    }
+
     public transfer( destinyAccount: Account, value: number): void {
         // this.saldo = this.saldo - valor;
         // contaDestino.saldo = contaDestino.saldo + valor;
