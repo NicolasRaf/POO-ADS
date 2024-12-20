@@ -1,8 +1,16 @@
-import { Calculator } from "../classes";
+import { pressEnter } from "../utils/io";
+import { OptionSelector } from "../classes";
 
 function main() {
-    let myCalculator = new Calculator(10, 5);
+    let optionSelector = new OptionSelector();
+    let option = optionSelector.showMenu();
 
+    while (option != 0) {
+        optionSelector.handleOption(option);
+        pressEnter();
+        option = optionSelector.showMenu();
+    }
+    console.log("Programa Finalizado...");
 }
 
-main();
+main(); 
