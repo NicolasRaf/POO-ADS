@@ -3,11 +3,11 @@ import { Client } from "./client";
 
 export class Bank {
     private _accounts: Account[];
-    private clients: Client[];    
+    private _clients: Client[];    
 
     constructor() {
         this._accounts = [];
-        this.clients = [];
+        this._clients = [];
     }
 
     public insertAccount( newAccount: Account ): void {
@@ -15,7 +15,7 @@ export class Bank {
     }
 
     public insertClient( newClient: Client): void {
-        this.clients.push(newClient);
+        this._clients.push(newClient);
     }
 
     public consultAccount( accNumber: string ): Account {
@@ -38,7 +38,7 @@ export class Bank {
 
     public getClientndexByNumber( clientCPF: string ): number | undefined {
         for (let i = 0; i < this._accounts.length; i++) {
-            if (this.clients[i].cpf == clientCPF) return i;
+            if (this._clients[i].cpf == clientCPF) return i;
         }
     }
 
@@ -63,7 +63,7 @@ export class Bank {
         let clientIndex: number | undefined = this.getClientndexByNumber(clientCPF);
         if (clientIndex === undefined) return false;
     
-        let clientAccounts = this.clients[clientIndex].accounts;
+        let clientAccounts = this._clients[clientIndex].accounts;
 
         for (const account of clientAccounts) {
             if (deleteAccounts) {
@@ -74,19 +74,19 @@ export class Bank {
         }
         
 
-        const indexArraySize: number = this.clients.length - 1;
+        const indexArraySize: number = this._clients.length - 1;
         for (let i = clientIndex; i < indexArraySize; i++) {
-                this.clients[i] = this.clients[i + 1];
+                this._clients[i] = this._clients[i + 1];
         }
         
-        this.clients.pop(); 
+        this._clients.pop(); 
         return true;
     }
 
     public consultClientByCPF( searchedCPF: string ): Client {
         let clientSearched!: Client;
 
-        for (let client of this.clients) {
+        for (let client of this._clients) {
             if (client.cpf === searchedCPF){
                 clientSearched = client;
             }
