@@ -16,20 +16,21 @@ export class OptionSelector {
         console.log(`  ==============================================`);
     
         console.log(`\t  Contas   \t\tClientes\n     -------------------   -------------------
-    \t01-Inserir             10-Inserir
-    \t02-Consultar           11-Consultar
-    \t03-Sacar               12-Associar 
+    \t01-Inserir             11-Inserir
+    \t02-Consultar           12-Consultar
+    \t03-Sacar               13-Associar 
     \t04-Depositar            e trocar
-    \t05-Excluir             13-Excluir
+    \t05-Excluir             14-Excluir
     \t06-Transferir 
     \t07-Totalizações   
     \t08-Contas sem
            cliente   
     \t09-Transferências
-           multiplas                 0-Sair
+           multiplas  
+    \t10-Render Juros                0-Sair
     ==============================================\n`);
     
-        return getNumberInRange(" >> ", 0, 13);
+        return getNumberInRange(" >> ", 0, 14);
     }
 
     public handleOption(option: number): void {
@@ -64,15 +65,17 @@ export class OptionSelector {
                 this.handleMultipleTransfers();
                 break;
             case 10:
-                this.handleInsertClient();
                 break;
             case 11:
-                this.handleConsultClient();
+                this.handleInsertClient();
                 break;
             case 12:
-                this.handleLinkClientToAccount();
+                this.handleConsultClient();
                 break;
             case 13:
+                this.handleLinkClientToAccount();
+                break;
+            case 14:
                 this.handleDeleteClient();
                 break;
             default:

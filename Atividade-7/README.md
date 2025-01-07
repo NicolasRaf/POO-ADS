@@ -36,3 +36,17 @@ Calculadora Científica: Elevando 5 ao expoente 3:
 Para a acessar os atributos de operando da classe "pai" `Calculator` foi necessário transforma os seus atributos em `protected` em vez de `private`, também poderia ter transformados eles em `public`, mas preferir utilizar o protected por manter características do private para escopos que não são subclasses. Outro metódo que pensei seria usando um método `get` para os operandos, mas preferir simplificar com o modificador `protected`.
 
 ---
+
+### 4ª Questão | Letra a - [Código](https://github.com/NicolasRaf/POO-ADS/blob/f861b781a3220f27030161e48f0e63ddab3b2a37/Atividade-7/src/models/bank/bank.ts)
+
+```
+public bankEarnInterest( accNumber: string ): boolean {
+    const account: Account = this.consultAccount(accNumber);
+
+    if ( account != undefined && account instanceof SavingsAccount) {
+        (account as SavingsAccount).earnInterest();
+        return true;
+    }
+    return false;   
+}
+```

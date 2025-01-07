@@ -1,5 +1,6 @@
 import { Account } from "./account";
 import { Client } from "./client";
+import { SavingsAccount } from "./savingAccount";
 
 export class Bank {
     private _accounts: Account[];
@@ -142,6 +143,17 @@ export class Bank {
         
         return false;
     }
+
+    public bankEarnInterest( accNumber: string ): boolean {
+        const account: Account = this.consultAccount(accNumber);
+
+        if ( account != undefined && account instanceof SavingsAccount) {
+            (account as SavingsAccount).earnInterest();
+            return true;
+        }
+        return false;   
+    }
+
 
     public transferBank(value: number, originAccNumber: string, destinyAccNumber: string ): boolean {
         if (value <= 0 || isNaN(value)) return false;
