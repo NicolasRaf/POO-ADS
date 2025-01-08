@@ -4,19 +4,28 @@ import { SavingsAccount } from "./savingAccount";
 
 export class Bank {
     private _accounts: Account[];
-    private _clients: Client[];    
+    private _clients: Client[];
+    private _currentAccountId: number; 
+    private _currentClientId: number;    
+
 
     constructor() {
         this._accounts = [];
         this._clients = [];
+        this._currentAccountId = 1;
+        this._currentClientId = 1;
     }
 
     public insertAccount( newAccount: Account ): void {
+        newAccount.id = this._currentAccountId;
         this._accounts.push(newAccount);
+        this._currentAccountId++;
     }
 
     public insertClient( newClient: Client): void {
+        newClient.id = this._currentClientId;
         this._clients.push(newClient);
+        this._currentClientId++;
     }
 
     public consultAccount( accNumber: string ): Account {

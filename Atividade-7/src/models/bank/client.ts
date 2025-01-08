@@ -31,6 +31,10 @@ export class Client {
         this._dateBirth = newDateBirth;
     }
 
+    public set id( newId: number ){
+        this._id = newId;
+    }
+
     public insertAccount( newAccount: Account ): void {
         this._accounts.push( newAccount );
     }

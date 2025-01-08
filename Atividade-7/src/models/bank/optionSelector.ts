@@ -1,5 +1,6 @@
 import { Account, Bank, Client } from "../index";
 import { getChar, getNumber, getNumberInRange, getText, pressEnter } from "../../utils/io";
+import { SavingsAccount } from "./savingAccount";
 
 export class OptionSelector {
     private _bank: Bank;
@@ -65,6 +66,7 @@ export class OptionSelector {
                 this.handleMultipleTransfers();
                 break;
             case 10:
+                this.handleEarnInterest();
                 break;
             case 11:
                 this.handleInsertClient();
@@ -85,9 +87,18 @@ export class OptionSelector {
     }
 
     private handleInsertAccount(): void {
+        const typeAcc: string = getChar("Conta Corrente ou Conta Poupança(C/P): ", ["c", "p"]);
         const num: string = getText("Informe o número da conta: ");
         const initialBalance: number = getNumber("Informe o saldo inicial: ");
+
+
+        if (typeAcc.toUpperCase() === "C"){
         this._bank.insertAccount(new Account(num, initialBalance));
+        } else {
+        const interestRate: number = getNumber("Informe a taxa de juros: ");
+        this._bank.insertAccount(new SavingsAccount(num, initialBalance, interestRate));
+        }   
+
         console.log("\nConta inserida com sucesso!");
     }
 
@@ -231,6 +242,13 @@ export class OptionSelector {
             ? this._bank.deleteClient(searchedCPF, false) 
             : this._bank.deleteClient(searchedCPF, true);
         this.checkResult(result, "Cliente excluído com sucesso!", "Falha ao excluir cliente!");
+    }
+
+    private handleEarnInterest(): void {
+        const accNumber: string = getText("Informe o número da conta: ");
+        const result: boolean = this._bank.bankEarnInterest(accNumber);
+
+        this.checkResult(result, "Sucesso ao render juros!", "Não foi possivel render juros da conta!")
     }
 
     private checkResult(result: boolean, trueFeedback: any, falseFeedback: any): void {
