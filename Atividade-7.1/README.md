@@ -30,8 +30,9 @@ Foi necessário transformar o o atributo da classe pai `balance` em `protected` 
 ### 4ª Questão | Letra c/d/e - [Código](https://github.com/NicolasRaf/POO-ADS/blob/main/Atividade-7.1/src/models/bank/bank.ts)
 
 ```
-public addFromFile(): string[] {
+Letra C
 
+public addFromFile(): string[] {
     const dir: string = "../../src/utils/accounts.txt"
     let data: string[] = readFileSync(dir, "utf-8").split("\n");
 
@@ -44,7 +45,8 @@ public addFromFile(): string[] {
         const accountType: string = accounts[0];  
         const accNumber: string = accounts[1];
         const balance: number = Number(accounts[2]);
-        const client = new Client(accounts[3], accounts[4], new Date(accounts[5]));
+        const name: string = accounts[3]
+        const client: Client | undefined = (name != "NA") ? new Client(name, accounts[4], new Date(accounts[5])) : undefined;
 
         if (accountType === "C") {
             this.insertAccount(new Account(accNumber, balance, client));
@@ -54,12 +56,29 @@ public addFromFile(): string[] {
         } else if (accountType === "CI") {
             const yieldRate: number = Number(accounts[6]);
             this.insertAccount(new TaxAccount(accNumber, balance, client, yieldRate));
+        } else if (accountType === "BA") {
+            const bonus: number = Number(accounts[6]);
+            this.insertAccount(new BonusAccount(accNumber, balance, client, bonus));
         }
-
         numberAccAdded.push(accNumber);
     }
 
     return numberAccAdded;
+
+Letra D
+
+    public saveAccountsInFile(): void {
+        const dir: string = "../../src/utils/accounts.txt"
+        let data: string = "";
+
+        for (let account of this._accounts){
+            data += account.getFormattedAttributes() + "\n";   
+        }
+
+        writeFileSync(dir, data);
+    }
+
+Letra E: Classe criada na pasta model dos bank
 }
 ```
 
