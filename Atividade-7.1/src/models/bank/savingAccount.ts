@@ -12,4 +12,8 @@ export class SavingsAccount extends Account {
         let Interest: number = this.balance * this._interestRate/100;
         this.deposit(Interest);        
     }
+
+    public getFormattedAttributes(): string {
+        return super.getFormattedAttributes("CP") + `;${this._interestRate}`;
+    }
 }

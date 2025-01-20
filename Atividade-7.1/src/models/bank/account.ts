@@ -64,18 +64,14 @@ export class Account {
     }
 
     public transfer( destinyAccount: Account, value: number): void {
-        // this.saldo = this.saldo - valor;
-        // contaDestino.saldo = contaDestino.saldo + valor;
-
         this.deposit(value);
         destinyAccount.deposit(value);
     }  
 
-    public getFormattedAttributes(): string {
-        const formattedAt: string = this._accNumber
+    public getFormattedAttributes(type: string = "C"): string {
+        const formattedAttributes: string = `${type};` +`${this._accNumber};` + `${this._balance.toFixed(2)};`
 
-
-        return "";
+        if (this._client) return formattedAttributes + this._client?.getFormattedAttributes();
+        return formattedAttributes + "NA;000;0000-00-00";
     }
 }
-

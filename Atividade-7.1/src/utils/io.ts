@@ -48,3 +48,15 @@ export function getChar(text: string, validChars?: string[]): string {
     }
     return response;
 }
+
+
+export function getTextFiltred(text: string, filter: string) {
+    const response = input(text);
+
+    if (response.toLowerCase() === filter) {
+        console.log("Entrada Inválida!\n");
+        return getTextFiltred(text, filter);
+    }
+
+    return response;
+}

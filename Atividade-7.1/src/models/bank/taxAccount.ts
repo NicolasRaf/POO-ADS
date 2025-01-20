@@ -18,4 +18,8 @@ export class TaxAccount extends Account {
         super.withdraw(amount);
         return true
     }
+
+    public getFormattedAttributes(): string {
+        return super.getFormattedAttributes("CI") + `;${this._taxRate}`;  
+    }
 }

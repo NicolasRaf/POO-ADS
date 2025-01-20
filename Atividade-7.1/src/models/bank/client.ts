@@ -38,4 +38,11 @@ export class Client {
     public insertAccount( newAccount: Account ): void {
         this._accounts.push( newAccount );
     }
+
+    public getFormattedAttributes(): string {
+        const formattedDate = this._dateBirth.toISOString().split('T')[0];
+
+        const formattedAttributes: string = `${this._name};` +`${this._cpf};` + `${formattedDate}`
+        return formattedAttributes;
+    }
 }   

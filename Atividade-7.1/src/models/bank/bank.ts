@@ -1,4 +1,4 @@
-import { Account, Client, SavingsAccount, TaxAccount } from "../index";
+import { Account, BonusAccount, Client, SavingsAccount, TaxAccount } from "../index";
 import { readFileSync, writeFileSync } from "fs";
 
 export class Bank {
@@ -15,16 +15,24 @@ export class Bank {
         this._currentClientId = 1;
     }
 
-    public insertAccount( newAccount: Account ): void {
+    public insertAccount( newAccount: Account ): boolean {
+        if (this.consultAccount(newAccount.accNumber)) return false;
+
         newAccount.id = this._currentAccountId;
         this._accounts.push(newAccount);
         this._currentAccountId++;
+
+        return true;
     }
 
-    public insertClient( newClient: Client): void {
+    public insertClient( newClient: Client): boolean {
+        if (this.consultClientByCPF(newClient.cpf)) return false;
+
         newClient.id = this._currentClientId;
         this._clients.push(newClient);
         this._currentClientId++;
+
+        return true;
     }
 
     public consultAccount( accNumber: string ): Account {
@@ -255,7 +263,8 @@ export class Bank {
             const accountType: string = accounts[0];  
             const accNumber: string = accounts[1];
             const balance: number = Number(accounts[2]);
-            const client = new Client(accounts[3], accounts[4], new Date(accounts[5]));
+            const name: string = accounts[3]
+            const client: Client | undefined = (name != "NA") ? new Client(name, accounts[4], new Date(accounts[5])) : undefined;
 
            if (accountType === "C") {
                 this.insertAccount(new Account(accNumber, balance, client));
@@ -265,13 +274,24 @@ export class Bank {
             } else if (accountType === "CI") {
                 const yieldRate: number = Number(accounts[6]);
                 this.insertAccount(new TaxAccount(accNumber, balance, client, yieldRate));
+            } else if (accountType === "BA") {
+                const bonus: number = Number(accounts[6]);
+                this.insertAccount(new BonusAccount(accNumber, balance, client, bonus));
             }
-
             numberAccAdded.push(accNumber);
         }
 
         return numberAccAdded;
     }
 
-    
+    public saveAccountsInFile(): void {
+        const dir: string = "../../src/utils/accounts.txt"
+        let data: string = "";
+
+        for (let account of this._accounts){
+            data += account.getFormattedAttributes() + "\n";   
+        }
+
+        writeFileSync(dir, data);
+    }
 }

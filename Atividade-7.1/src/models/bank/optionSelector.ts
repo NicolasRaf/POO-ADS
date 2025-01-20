@@ -1,5 +1,5 @@
-import { Account, Bank, Client, SavingsAccount, TaxAccount } from "../index";
-import { getChar, getNumber, getNumberInRange, getText, pressEnter } from "../../utils/io";
+import { Account, Bank, BonusAccount, Client, SavingsAccount, TaxAccount } from "../index";
+import { getChar, getNumber, getNumberInRange, getText, getTextFiltred, pressEnter } from "../../utils/io";
 
 export class OptionSelector {
     private _bank: Bank;
@@ -53,7 +53,8 @@ export class OptionSelector {
             12: this.handleConsultClient.bind(this),
             13: this.handleLinkClientToAccount.bind(this),
             14: this.handleDeleteClient.bind(this),
-            15: this.handleAddFromFile.bind(this)
+            15: this.handleAddFromFile.bind(this),
+            16: this._bank.saveAccountsInFile.bind(this._bank),
         };
 
         if (!optionsMap[option]) {
@@ -65,24 +66,28 @@ export class OptionSelector {
     }
     
     private handleInsertAccount(): void {
-        const typeAcc: string = getChar("Conta Corrente, Conta Poupança ou Conta Tributária (C/P/T): ", ["c", "p", "t"]);
+        const typeAcc: string = getChar(`Conta Corrente, Conta Poupança, Conta Tributária ou Conta Bônus(C/P/T/B): `, ["c", "p", "t", "b"]);
         const num: string = getText("Informe o número da conta: ");
         const initialBalance: number = getNumber("Informe o saldo inicial: ");
+        let result: boolean = false;
     
         if (typeAcc.toUpperCase() === "C") {
-            this._bank.insertAccount(new Account(num, initialBalance));
+            result = this._bank.insertAccount(new Account(num, initialBalance));
         } else if (typeAcc.toUpperCase() === "P") {
             const interestRate: number = getNumber("Informe a taxa de juros: ");
-            this._bank.insertAccount(new SavingsAccount(num, initialBalance, interestRate));
+            result = this._bank.insertAccount(new SavingsAccount(num, initialBalance, interestRate));
         } else if (typeAcc.toUpperCase() === "T") {
             const taxAccount = new TaxAccount(num, initialBalance);  
-            this._bank.insertAccount(taxAccount);
+            result = this._bank.insertAccount(taxAccount);
             console.log(`Taxa de Imposto: ${(taxAccount.taxRate*100)}%`);
+        } else if (typeAcc.toUpperCase() === "B") {
+            const bonusAccount = new BonusAccount(num, initialBalance);  
+            result = this._bank.insertAccount(bonusAccount);
+            console.log(`Bônus da Conta: ${(bonusAccount.bonusRate*100)}%`);
         }
-    
-        console.log("\nConta inserida com sucesso!");
+        
+        this.checkResult(result, "\nConta inserida com sucesso!", "\nFalha ao inserir conta!");
     }
-    
 
     private handleConsultAccount(): void {
         const accountNumber = getText("Digite o número da conta: ");
@@ -197,11 +202,11 @@ export class OptionSelector {
     }
 
     private handleInsertClient(): void {
-        const clientName = getText("Digite o nome do cliente: ");
+        const clientName = getTextFiltred("Digite o nome do cliente: ", "na");
         const cpf = getText("Digite o CPF do cliente: ");
         const dateBirth = getText("Informe a data de nascimento (YYYY-MM-DD): ");
-        this._bank.insertClient(new Client(clientName, cpf, new Date(dateBirth)));
-        console.log("Cliente inserido com sucesso!");
+        const result = this._bank.insertClient(new Client(clientName, cpf, new Date(dateBirth)));
+        this.checkResult(result, "Cliente inserido com sucesso!", "Falha ao inserir cliente!");
     }
 
     private handleConsultClient(): void {

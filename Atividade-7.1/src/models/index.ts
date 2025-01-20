@@ -8,3 +8,4 @@ export { TaxAccount } from "./bank/taxAccount";
 export { Product } from "./stock/product" 
 export { PerishableProduct } from "./stock/perishableProduct" 
 export { Stock } from "./stock/stock"
+export { BonusAccount } from "./bank/bonusAccount"
