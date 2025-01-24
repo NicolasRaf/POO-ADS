@@ -7,6 +7,8 @@ export class Account {
     private _client?: Client;
 
     constructor(accNumber: string, balance: number, client?: Client, id?: number) {
+        this.validateValue(balance);
+
         this._id = id;
         this._accNumber = accNumber;        
         this._balance = balance;
@@ -46,12 +48,10 @@ export class Account {
     }
 
     public withdraw(value: number): void {
-        if (value <= 0 || isNaN(value)) {
-            throw new Error('Valor inválido para saque: ' + value);
-        }
+        this.validateValue(value);
         
         if (this._balance < value) {
-            throw new Error('Saldo insuficiente. Saldo atual: ' + this._balance);
+            throw new Error('Erro: Saldo insuficiente. Saldo atual -> ' + this._balance);
         }
     
         this._balance -= value;
@@ -59,6 +59,8 @@ export class Account {
     
 
     public deposit(value: number): void {
+        this.validateValue(value);
+
         this._balance = this._balance + value;
     }
 
@@ -67,8 +69,8 @@ export class Account {
     }
 
     public transfer( destinyAccount: Account, value: number): void {
-        this.deposit(value);
-        destinyAccount.deposit(value);
+        this.withdraw(value);
+        destinyAccount.deposit(value); 
     }  
 
     public getFormattedAttributes(type: string = "C"): string {
@@ -76,5 +78,11 @@ export class Account {
 
         if (this._client) return formattedAttributes + this._client?.getFormattedAttributes();
         return formattedAttributes + "NA;000;0000-00-00";
+    }
+
+    protected validateValue(value: number): void {
+        if (value < 0 || isNaN(value)) {
+            throw new Error(`Erro: Valor inválido\n`);
+        };
     }
 }

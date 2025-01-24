@@ -171,9 +171,7 @@ export class Bank {
     }
 
 
-    public transferBank(value: number, originAccNumber: string, destinyAccNumber: string ): boolean {
-        if (value <= 0 || isNaN(value)) return false;
-
+    public transferBank(value: number, originAccNumber: string, destinyAccNumber: string ): void {
         const originAccountIndex: number | undefined = this.getAccountIndexByNumber(originAccNumber);
         const destinyAccountIndex: number | undefined = this.getAccountIndexByNumber(destinyAccNumber);
         let originAccount: Account;
@@ -183,15 +181,11 @@ export class Bank {
             originAccount = this._accounts[originAccountIndex];
             destinyAccount = this._accounts[destinyAccountIndex];
 
-            try {
-                originAccount.withdraw(value)
-                destinyAccount.deposit(value)
-                return true;
-            } catch (error) {
-                return false;
-            }
+            originAccount.transfer(destinyAccount, value);
+           
+        } else {
+            throw new Error("Erro: Conta de origem ou destino não encontrada!\n");
         }
-        return false;
     }
 
     public transferBankArray(value: number, originAccNumber: string, destinyAccounts: string[]): boolean[] | boolean {

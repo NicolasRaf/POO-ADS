@@ -134,8 +134,16 @@ export class OptionSelector {
         const originAccount = getText("Informe o número da conta origem: ");
         const destinationAccount = getText("Informe o número da conta destino: ");
         const value = getNumber("Digite o valor a ser transferido: ");
-        const result = this._bank.transferBank(value, originAccount, destinationAccount);
-        this.checkResult(result, "Transferência realizada com sucesso!", "Falha ao realizar transferência!");
+
+        try {
+            this._bank.transferBank(value, originAccount, destinationAccount);
+            console.log("Transferência realizada com sucesso!");
+        } catch (error) {
+            if (error instanceof Error) {
+                console.error(error.message);
+                console.log("Transferência falhou!");
+            }
+        }
     }
 
     private handleBalanceSummary(): void {

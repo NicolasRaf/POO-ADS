@@ -2,14 +2,18 @@ import prompt from "prompt-sync";
 let input = prompt();
 
 export function getNumber(text: string): number {
-    const response = input(text);   
+    const response = input(text);
 
-    if (isNaN(Number(response)) || response === "") {
-        console.log("Entrada Invalída!\n");
-        return getNumber(text);
+    try {
+        if (isNaN(Number(response)) || response === "") {
+            throw new Error(`Erro: Caractere inválido!\n`);
+        }
+        return Number(response);
+    } catch (error) {
+        const typedError = error as Error;
+        console.error(typedError.message); 
+        return getNumber(text); 
     }
-
-    return Number(response);
 }
 
 export function getNumberInRange(text: string, min:number, max: number): number {
