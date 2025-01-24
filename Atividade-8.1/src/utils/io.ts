@@ -28,6 +28,7 @@ export function pressEnter(): void {
     input("Press Enter para continuar...");
 }
 
+
 export function getText(text: string) {
     return input(text);
 }
@@ -35,12 +36,15 @@ export function getText(text: string) {
 export function getChar(text: string, validChars?: string[]): string {
     const response = input(text);
 
+    // Check if the input is a single character
     if (response.length !== 1) {
         console.log("Entrada inválida! Por favor, insira apenas um caractere.\n");
         return getChar(text, validChars);
     }
 
+    // Check if the input is valid
     if (validChars != undefined){
+        // Check if the character is in the array of valid characters
         if (!validChars.includes(response.toLowerCase()) && !validChars.includes(response.toUpperCase()) ) {
             console.log(`Caractere inválido! Por favor, insira um dos seguintes: ${validChars}\n`);
             return getChar(text, validChars);

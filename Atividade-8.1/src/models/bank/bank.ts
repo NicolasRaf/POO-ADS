@@ -183,9 +183,12 @@ export class Bank {
             originAccount = this._accounts[originAccountIndex];
             destinyAccount = this._accounts[destinyAccountIndex];
 
-            if (originAccount.withdraw(value)) {
-                destinyAccount.deposit(value);
+            try {
+                originAccount.withdraw(value)
+                destinyAccount.deposit(value)
                 return true;
+            } catch (error) {
+                return false;
             }
         }
         return false;
@@ -206,11 +209,11 @@ export class Bank {
     
             if (destinyAccountIndex !== undefined) {
                 const destinyAccount: Account = this._accounts[destinyAccountIndex];
-    
-                if (originAccount.withdraw(value)) {
-                    destinyAccount.deposit(value);
-                    results.push(true); 
-                } else {
+                try {
+                    originAccount.withdraw(value)
+                    destinyAccount.deposit(value)
+                    results.push(true);
+                } catch (error) {
                     results.push(false);
                     continue;
                 }
